@@ -30,7 +30,7 @@ Inventory.propTypes = {
         quantity:PropTypes.number,
         img:PropTypes.string,
     }),
-    order:PropTypes.object,
+    order:PropTypes.number,
     addToOrder:PropTypes.func,
 };
 

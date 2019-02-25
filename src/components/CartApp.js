@@ -16,17 +16,24 @@ class CartApp extends Component {
         this.setState({inventory:inventory})
     };
 
-    addToOrder = (key) => {
+    addToOrder = (id) => {
         const order = {...this.state.order};
-        order[key] = order[key] +1 || 1;
+        order[id] = order[id] +1 || 1;
         this.setState({ order });
     };
-    deleteFromOrder = (key) => {
+    deleteFromOrder = (id) => {
         const order = {...this.state.order};
-        order[key] = order[key] -1 || 0;
+        order[id] = order[id] -1 || 0;
         this.setState({ order });
     };
     checkoutOrder = () => {
+        const inventory = {...this.state.inventory};
+        console.log(inventory);
+        Object.keys(inventory).map((key) => {
+            console.log(this.state.order);
+            return inventory[key]['quantity'] -= (this.state.order[key])?this.state.order[key] :0;
+        });
+        console.log(inventory);
         const order = {};
         this.setState({ order });
 

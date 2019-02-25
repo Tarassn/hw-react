@@ -31,7 +31,7 @@ CartItem.propTypes = {
         price:PropTypes.number,
         quantity:PropTypes.number,
     }),
-    order:PropTypes.object,
+    order:PropTypes.number,
     addToOrder:PropTypes.func,
     deleteFromOrder: PropTypes.func,
 

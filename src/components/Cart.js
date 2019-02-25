@@ -5,12 +5,19 @@ import PropTypes from "prop-types";
 
 
 class Cart extends Component {
-    render() {
+    componentDidMount(){
+        this.totalSum();
+    }
+    totalSum = () =>{
         let total = Object.keys(this.props.order).reduce((previousValue, key) =>{
             const item = this.props.inventory[key];
             const count = this.props.order[key];
             return previousValue + count * item.price;
         },0);
+        return total
+    };
+    render() {
+
         return (
             <div className={'Cart'}>
                 <div className={'row'}>
@@ -26,7 +33,7 @@ class Cart extends Component {
                     ))
                     }
                 </div>
-                <span>Total:${total}</span>
+                <span>Total:${this.totalSum()}</span>
                 <button
                     className={'btn btn-success'}
                     onClick={this.props.checkoutOrder}
