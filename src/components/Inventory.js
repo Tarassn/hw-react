@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import CartApp from "./CartApp";
 import PropTypes from 'prop-types';
 
-
-
 class Inventory extends Component {
     handleClick = () =>{
         this.props.addToOrder(this.props.index)
@@ -15,7 +13,7 @@ class Inventory extends Component {
                 {name} - ${price}
                 <img src={img} className={'inventory-img'} alt={name}/>
                 <br/>
-                <button className={'btn btn-info'} onClick={this.handleClick} disabled={(quantity<=this.props.order)}> Buy</button>
+                <button className={'btn btn-info'} onClick={this.handleClick} disabled={(quantity<=this.props.order||quantity===0)}> Buy</button>
                 <br/>
                 ( Ordered: {this.props.order||'0'} {' '}
                 Left:{(this.props.order)?quantity - this.props.order: quantity})
