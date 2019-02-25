@@ -21,10 +21,15 @@ class CartApp extends Component {
         order[key] = order[key] +1 || 1;
         this.setState({ order });
     };
-    reduceOrder = (key) => {
+    deleteFromOrder = (key) => {
         const order = {...this.state.order};
         order[key] = order[key] -1 || 0;
         this.setState({ order });
+    };
+    checkoutOrder = () => {
+        const order = {};
+        this.setState({ order });
+
     };
     render() {
         return (
@@ -33,7 +38,8 @@ class CartApp extends Component {
                     order={this.state.order}
                     inventory={this.state.inventory}
                     addToOrder={this.addToOrder}
-                    reduceOrder={this.reduceOrder}
+                    deleteFromOrder={this.deleteFromOrder}
+                    checkoutOrder={this.checkoutOrder}
                 />
 
                 <div className={'inventory-container row'}>

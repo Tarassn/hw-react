@@ -6,16 +6,21 @@
     margin: 0 20px;
 }
 .Cart{
-    padding: 2%;
+
     border: 1px solid gray;
 }
 .Cart >span{
-    margin: 0 20px;
+    padding: 0 20px;
     font-weight: bold;
+    font-size: 120%;
+}
+.Cart > button {
+    margin: 10px;
 }
 .CartItem{
     padding: 2%;
     border: 1px solid gray;
+    text-align: center;
 }
 .Inventory{
     padding: 2%;
