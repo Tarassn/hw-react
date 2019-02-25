@@ -4,5 +4,24 @@
 .inventory-img{
     width: 50px;
     margin: 0 20px;
-
+}
+.Cart{
+    padding: 2%;
+    border: 1px solid gray;
+}
+.Cart >span{
+    margin: 0 20px;
+    font-weight: bold;
+}
+.CartItem{
+    padding: 2%;
+    border: 1px solid gray;
+}
+.Inventory{
+    padding: 2%;
+    border: 1px solid gray;
+    text-align: center;
+}
+.btn-info{
+    margin: 20px 10px;
 }

@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {inventory} from "../data-object";
 import Inventory from "./Inventory";
 import Cart from "./Cart";
-
+import PropTypes from 'prop-types';
 
 class CartApp extends Component {
     state = {
         inventory:{},
-        order:{}
+        order:{},
     };
     componentDidMount(){
         this.loadInvertory();
@@ -36,6 +36,7 @@ class CartApp extends Component {
                     reduceOrder={this.reduceOrder}
                 />
 
+                <div className={'inventory-container row'}>
                 {Object.keys(this.state.inventory).map((key) => (
                     <Inventory
                         details={this.state.inventory[key]}
@@ -46,9 +47,11 @@ class CartApp extends Component {
                     />
                 ))
                 }
+                </div>
             </div>
         );
     }
 }
+
 
 export default CartApp;
