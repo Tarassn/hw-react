@@ -26,10 +26,10 @@ class Counter extends Component {
         return (
             <div className={'counter'}>
                 <span>{this.props.name}</span>
-                {this.state.count}
-                <button onClick={this.countUp}>+1</button>
-                <button onClick={this.countDown}>-1</button>
-                <button onClick={this.reset}>Reset</button>
+                <b>{this.state.count}</b>
+                <button className={'btn btn-info'} onClick={this.countUp}>+1</button>
+                <button className={'btn btn-info'} onClick={this.countDown}>-1</button>
+                <button className={'btn btn-info'} onClick={this.reset}>Reset</button>
             </div>
         );
     }
