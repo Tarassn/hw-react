@@ -2,18 +2,46 @@ import React, { Component } from 'react';
 import {inventory} from "../data-object";
 import Inventory from "./Inventory";
 import Cart from "./Cart";
-import PropTypes from 'prop-types';
 
 class CartApp extends Component {
     state = {
         inventory:{},
         order:{},
     };
+
     componentDidMount(){
-        this.loadInvertory();
+        this.loadInventory(this.sortInventory());
     }
-    loadInvertory =() =>{
-        this.setState({inventory:inventory})
+
+    componentDidUpdate(){
+        console.log();
+    }
+
+    loadInventory =(newValue) =>{
+        this.setState({inventory:newValue})
+    };
+
+    sortInventory = () => {
+        const unordered = inventory;
+        let nameArr=[];
+        let ordered = {};
+        Object.keys(unordered).forEach(function(key) {
+            nameArr.push([unordered[key].name]);
+        });
+        nameArr.sort();
+        nameArr.map((key,index,array)=>{
+            array[index] = [key[0], `item${index + 1}`]
+        });
+        nameArr.forEach((item)=>{
+            for (let key in unordered){
+                if(unordered.hasOwnProperty(key) && unordered[key].name === item[0]){
+                    ordered[item[1]]=unordered[key]
+                }
+            }
+            return ordered;
+        });
+        console.log(nameArr)
+        return ordered
     };
 
     addToOrder = (id) => {
