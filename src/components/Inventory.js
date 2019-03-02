@@ -22,7 +22,7 @@ class Inventory extends Component {
     }
 }
 Inventory.propTypes = {
-    inventory:PropTypes.shape({
+    details:PropTypes.shape({
         name:PropTypes.string,
         price:PropTypes.number,
         quantity:PropTypes.number,
